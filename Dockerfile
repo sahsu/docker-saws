@@ -1,14 +1,9 @@
-FROM alpine:latest
+FROM zhaochunqi/python-pip
 MAINTAINER sahsu.mobi@gmail.com
 
 WORKDIR /tmp
-RUN apk --update add \
-      python \
-      py-pip \
-      jq \
-      curl \
-      bash && \
-    pip install --upgrade saws
 
-CMD ["/bin/bash"]
+RUN pip install --upgrade saws
+
+CMD ["/usr/local/bin/saws"]
 

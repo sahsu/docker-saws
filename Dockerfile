@@ -1,9 +1,13 @@
-FROM zhaochunqi/python-pip
+#FROM zhaochunqi/python-pip
+FROM alpine
 MAINTAINER sahsu.mobi@gmail.com
 
-WORKDIR /tmp
+RUN \
+	mkdir -p /aws && \
+	apk -Uuv add groff less python py-pip && \
+	pip install saws && \
+	apk --purge -v del py-pip && \
+	rm /var/cache/apk/*
 
-RUN pip install --upgrade saws
-
-CMD ["/usr/local/bin/saws"]
-
+WORKDIR /aws
+ENTRYPOINT ["saws"]

@@ -1,4 +1,3 @@
-#FROM zhaochunqi/python-pip
 FROM alpine
 MAINTAINER sahsu.mobi@gmail.com
 
